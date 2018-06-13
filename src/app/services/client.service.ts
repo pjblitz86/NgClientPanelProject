@@ -17,8 +17,25 @@ export class ClientService {
     this.clientsCollection = this.afs.collection('clients', ref => ref.orderBy('lastName', 'asc'));
   }
 
+  getClient(id: string): Observable<Client> {
+    // get 1 client by id
+    this.clientDoc = this.afs.doc<Client>(`clients/${id}`);
+    this.client = this.clientDoc.snapshotChanges().pipe(
+      map(actions => {
+        if (actions.payload.exists === false) {
+          return null;
+        } else {
+          const data = actions.payload.data() as Client;
+          data.id = actions.payload.id;
+          return data;
+        }
+      })
+    );
+    return this.client;
+  }
+
   getClients(): Observable<Client[]> {
-  // Get clients with id
+  // Get all clients with id
     this.clients = this.clientsCollection.snapshotChanges()
       .pipe(map(actions => {
         return actions.map(action => {
