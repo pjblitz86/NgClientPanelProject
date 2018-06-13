@@ -5,7 +5,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -43,7 +43,8 @@ import { AppRoutingModule } from './/app-routing.module';
     AngularFireModule.initializeApp(environment.firebase, 'clientpanel' ),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    FlashMessagesModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
