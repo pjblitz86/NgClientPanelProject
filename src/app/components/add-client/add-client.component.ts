@@ -1,3 +1,4 @@
+import { Client } from './../../models/Client';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-client.component.css']
 })
 export class AddClientComponent implements OnInit {
+  client: Client = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    balance: 0
+  };
+
+  disableBalanceOnAdd: boolean = false;
 
   constructor() { }
 
