@@ -1,4 +1,3 @@
-import { ClientService } from './services/client.service';
 import { environment } from './../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -45,7 +44,7 @@ import { AppRoutingModule } from './/app-routing.module';
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [ClientService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

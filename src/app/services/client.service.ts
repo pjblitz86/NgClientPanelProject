@@ -19,16 +19,16 @@ export class ClientService {
 
   getClients(): Observable<Client[]> {
   // Get clients with id
-  this.clients = this.clientsCollection.snapshotChanges()
-    .pipe(map(actions => {
-      return actions.map(action => {
-      const data = action.payload.doc.data() as Client;
-      data.id = action.payload.doc.id;
-      return data;
-      });
+    this.clients = this.clientsCollection.snapshotChanges()
+      .pipe(map(actions => {
+        return actions.map(action => {
+        const data = action.payload.doc.data() as Client;
+        data.id = action.payload.doc.id;
+        return data;
+        });
       })
     );
-
-  return this.clients;
+    return this.clients;
   }
 }
+
