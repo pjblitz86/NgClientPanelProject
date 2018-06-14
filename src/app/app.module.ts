@@ -1,3 +1,4 @@
+import { SettingsService } from './services/settings.service';
 import { AuthService } from './services/auth.service';
 import { environment } from './../environments/environment';
 import { AngularFireModule } from 'angularfire2';
